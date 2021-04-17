@@ -1,0 +1,21 @@
+name: Ruby
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 3.0
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.0.0
+    - name: Install gem dependencies
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+    - name: Compile extensions.
+      run: bundle exec rake compile
+    - name: Run Rspec
+      run: bundle exec rake spec

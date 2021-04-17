@@ -1,0 +1,6 @@
+versions:
+- rubocop
+- rubocop-performance
+- rubocop-rake
+- rubocop-rspec
+rubocop_fail_level: 'convention'
