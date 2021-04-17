@@ -15,7 +15,5 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-    - name: Compile extensions.
-      run: bundle exec rake compile
     - name: Run Rspec
       run: bundle exec rake spec
